@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/test/test",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Cosin",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "测试"
+      }
+    ],
+    "selectedColor": "#CCFFFF",
+    "backgroundColor": "#0099CC"
+  },
+  "debug":true
+}

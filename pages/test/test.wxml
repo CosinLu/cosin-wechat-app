@@ -1,0 +1,51 @@
+<!--pages/test/test.wxml-->
+<wxs module="m1">
+var getMax = function(array) {
+  var max = undefined;
+  for (var i = 0; i < array.length; ++i) {
+    max = max === undefined ? 
+      array[i] : 
+      (max >= array[i] ? max : array[i]);
+  }
+  return max;
+}
+
+module.exports.getMax = getMax;
+</wxs>
+
+<!-- 调用 wxs 里面的 getMax 函数，参数为 page.js 里面的 array -->
+<view> {{m1.getMax(array)}} </view>
+<text>{{page}}.wxml</text>
+<button bindtab="click_alert">点击</button>
+<template name="objectCombine">
+  <view>
+    FirstName: {{name}}, LastName: {{age}}
+  </view>
+</template>
+<template is="objectCombine" data="{{name,age}}"></template>
+<view wx:for="{{arr}}">
+  {{index}}:{{item.message}}
+</view>
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>
+<block wx:for="{{[1, 2, 3]}}">
+  <view> {{index}}: </view>
+  <view> {{item}} </view>
+</block>
+<template name="odd">
+  <view> odd </view>
+</template>
+<template name="even">
+  <view> even </view>
+</template>
+
+<block wx:for="{{[1, 2, 3, 4, 5]}}">
+    <template is="{{item % 2 == 0 ? 'even' : 'odd'}}"/>
+</block>
+<view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>
+<view id="touch" bindtap="touchstart">手指触摸事件</view>
